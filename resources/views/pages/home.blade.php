@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>HealSense | Digital Health</title>
     
     <style>
@@ -251,7 +252,9 @@
                         HEALTH
                     </div>
 
-                    <div class="mb-8 inline-flex items-center gap-3 rounded-full bg-white border border-slate-200/60 px-4 py-2 shadow-sm transition-all hover:bg-[#3ED6A8]/5 hover:border-[#3ED6A8]/30 group cursor-default">
+                    {{-- Animasi muncul dari atas --}}
+                    <div class="mb-8 inline-flex items-center gap-3 rounded-full bg-white border border-slate-200/60 px-4 py-2 shadow-sm transition-all hover:bg-[#3ED6A8]/5 hover:border-[#3ED6A8]/30 group cursor-default"
+                        data-aos="fade-down" data-aos-once="false">
                         <span class="relative flex h-2.5 w-2.5">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3ED6A8] opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#3ED6A8]"></span>
@@ -261,7 +264,9 @@
                         </span>
                     </div>
 
-                    <h1 class="mb-8 text-5xl md:text-7xl lg:text-[84px] font-black leading-[0.95] text-slate-900 tracking-[-0.04em]">
+                    {{-- Judul utama muncul dari kiri --}}
+                    <h1 class="mb-8 text-5xl md:text-7xl lg:text-[84px] font-black leading-[0.95] text-slate-900 tracking-[-0.04em]"
+                        data-aos="fade-right" data-aos-delay="200" data-aos-once="false">
                         Your Digital Guide <br class="hidden xl:block"> 
                         to <span class="relative inline-block mt-2">
                             <span class="relative z-10 bg-gradient-to-r from-[#3ED6A8] via-[#2AA880] to-[#1a6d53] bg-clip-text text-transparent">Better Health</span>
@@ -271,12 +276,16 @@
                         </span>
                     </h1>
                     
-                    <p class="mb-12 max-w-lg text-lg md:text-xl text-slate-500 leading-relaxed mx-auto lg:mx-0 font-medium">
+                    {{-- Deskripsi muncul dari kiri sedikit lebih lambat --}}
+                    <p class="mb-12 max-w-lg text-lg md:text-xl text-slate-500 leading-relaxed mx-auto lg:mx-0 font-medium"
+                    data-aos="fade-right" data-aos-delay="400" data-aos-once="false">
                         Learn, understand, and take control of your health with <span class="text-slate-900 font-bold underline decoration-[#3ED6A8]/40 decoration-4 underline-offset-4">trusted insights</span>. 
                         Empowered by AI, designed for your well-being.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-center gap-6 lg:justify-start">
+                    {{-- Tombol muncul dari bawah --}}
+                    <div class="flex flex-col sm:flex-row items-center gap-6 lg:justify-start"
+                        data-aos="fade-up" data-aos-delay="600" data-aos-once="false">
                         <a href="#" class="group relative w-full sm:w-auto">
                             <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                             <div class="btn-glossy relative flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-[#3ED6A8] font-black text-white shadow-xl transition-all group-hover:-translate-y-1.5 active:scale-95">
@@ -300,16 +309,20 @@
                     </div>
                 </div>
 
+                {{-- Bagian Visual --}}
                 <div class="w-full lg:w-[45%] flex justify-center lg:justify-end order-1 lg:order-2">
                     <div class="relative w-[75%] sm:w-[60%] lg:w-full max-w-md">
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-[#3ED6A8]/20 to-blue-400/10 rounded-full blur-[80px] -z-10"></div>
 
-                        <div class="animate-float relative z-10">
+                        {{-- Gambar Utama muncul dengan Zoom --}}
+                        <div class="animate-float relative z-10" data-aos="zoom-in" data-aos-duration="1500" data-aos-once="false">
                             <img src="/img/hero/anatomi.png" alt="Anatomy Illustration" 
                                 class="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] filter saturate-[1.1]">
                         </div>
 
-                        <div class="animate-float-fast absolute -right-4 top-10 z-20 hidden sm:block">
+                        {{-- Floating Card Kanan --}}
+                        <div class="animate-float-fast absolute -right-4 top-10 z-20 hidden sm:block" 
+                            data-aos="fade-left" data-aos-delay="800" data-aos-once="false">
                             <div class="bg-white/90 backdrop-blur-xl border border-slate-100 p-4 rounded-2xl shadow-xl flex items-center gap-3">
                                 <div class="bg-[#3ED6A8] p-2 rounded-lg text-white shadow-lg shadow-[#3ED6A8]/20">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +336,9 @@
                             </div>
                         </div>
 
-                        <div class="animate-float-slow absolute -left-10 top-1/2 z-20">
+                        {{-- Floating Card Kiri --}}
+                        <div class="animate-float-slow absolute -left-10 top-1/2 z-20"
+                            data-aos="fade-right" data-aos-delay="1000" data-aos-once="false">
                             <div class="bg-white/90 backdrop-blur-xl border border-slate-100 p-4 rounded-2xl shadow-xl flex items-center gap-3">
                                 <div class="bg-[#3ED6A8] p-2 rounded-full text-white">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -348,7 +363,26 @@
     {{-- Symptom Checker --}}
     @include('components.symptom-checker')
 
+    {{-- Health Categories --}}
+    @include('components.health-categories')
+
+    {{-- Daily Health Tips --}}
+    @include('components.daily-health-tips')
+
+    {{-- link script AOS --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // logic AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+            duration: 1000,
+            once: false,      // UBAH KE FALSE: Animasi akan terulang setiap kali scroll
+            mirror: true,     // TAMBAHKAN INI: Elemen akan beranimasi keluar saat kamu scroll melewatinya
+            offset: 120,      // Jarak (px) dari titik pemicu asli untuk memicu animasi
+            });
+        });
+
         // logic navbar
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.getElementById('menu-btn');

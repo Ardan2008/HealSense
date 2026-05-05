@@ -90,8 +90,8 @@
                 <div class="mt-6 h-1.5 w-16 bg-[#3ED6A8] rounded-full"></div>
             </div>
             
-            <div onclick="toggleCatalog(true)" class="group cursor-pointer flex items-center gap-5 bg-white p-2 pr-8 rounded-full shadow-sm border border-slate-200 hover:shadow-xl hover:border-[#3ED6A8]/30 transition-all duration-500">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-900 text-[#3ED6A8] group-hover:bg-[#3ED6A8] group-hover:text-white transition-all duration-500">
+            <div onclick="toggleCatalog(true)" class="group cursor-pointer flex items-center gap-5 bg-white p-2 pr-8 rounded-full border border-slate-200 hover:border-[#3ED6A8] transition-all duration-500">
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#3ED6A8] text-white transition-all duration-500">
                     <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
@@ -138,8 +138,12 @@
                         <p class="text-slate-500 text-xs font-medium italic">Medical & Health Wisdom</p>
                     </div>
                 </div>
-                <button onclick="toggleCatalog(false)" class="group h-12 w-12 flex items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm hover:bg-slate-900 transition-all duration-300">
-                    <svg class="w-5 h-5 group-hover:text-white transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button onclick="toggleCatalog(false)" 
+                    class="group relative h-12 w-12 flex items-center justify-center rounded-full border border-[#3ED6A8] text-[#3ED6A8] overflow-hidden transition-colors duration-500 ease-in-out hover:border-transparent">
+                    
+                    <span class="absolute inset-0 bg-[#3ED6A8] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+                    
+                    <svg class="w-5 h-5 relative z-10 transition-all duration-500 group-hover:text-white group-hover:rotate-90 group-hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>

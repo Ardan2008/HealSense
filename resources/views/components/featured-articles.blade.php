@@ -65,7 +65,7 @@
     }
 </style>
 
-<section class="py-24 bg-white relative overflow-hidden">
+<section id="featured-articles" class="py-24 bg-white relative overflow-hidden">
     
     <div class="absolute top-0 right-1/4 w-96 h-96 bg-[#3ED6A8]/10 rounded-full blur-[120px]"></div>
 
@@ -139,11 +139,16 @@
                     </div>
                 </div>
                 <button onclick="toggleCatalog(false)" 
-                    class="group relative h-12 w-12 flex items-center justify-center rounded-full border border-[#3ED6A8] text-[#3ED6A8] overflow-hidden transition-colors duration-500 ease-in-out hover:border-transparent">
+                        class="group relative h-12 w-12 flex items-center justify-center rounded-full border border-[#3ED6A8] text-[#3ED6A8] overflow-hidden transition-all duration-500 ease-in-out hover:border-transparent active:scale-90 active:shadow-inner">
                     
+                    {{-- Background Fill Animation --}}
                     <span class="absolute inset-0 bg-[#3ED6A8] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
                     
-                    <svg class="w-5 h-5 relative z-10 transition-all duration-500 group-hover:text-white group-hover:rotate-90 group-hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {{-- Icon with Rotate & Scale Animation --}}
+                    <svg class="w-5 h-5 relative z-10 transition-all duration-500 group-hover:text-white group-hover:rotate-90 group-hover:scale-125" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
@@ -181,18 +186,49 @@
             <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         </div>
         <div class="w-full md:w-[55%] p-10 md:p-16 overflow-y-auto bg-white flex flex-col custom-scroll">
-            <button onclick="closeArticleModal()" class="absolute top-10 right-10 text-slate-400 hover:text-slate-900 transition-all z-20">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
+            {{-- button close "X" --}}
+            <div class="absolute top-6 right-6 md:top-10 md:right-10 z-20">
+                <button onclick="closeArticleModal()" 
+                        class="group relative h-12 w-12 flex items-center justify-center rounded-full border border-[#3ED6A8] text-[#3ED6A8] overflow-hidden transition-colors duration-500 ease-in-out hover:border-transparent active:scale-90">
+                    
+                    {{-- Liquid Fill Layer (Hijau) --}}
+                    <span class="absolute inset-0 bg-[#3ED6A8] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+                    
+                    {{-- Icon X dengan animasi Rotate & Scale --}}
+                    <svg class="w-6 h-6 relative z-10 transition-all duration-500 group-hover:text-white group-hover:rotate-90 group-hover:scale-125" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
             <div class="flex-grow">
                 <span id="modalCategory" class="inline-block px-5 py-2 bg-[#3ED6A8]/10 text-[#3ED6A8] rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8"></span>
                 <h2 id="modalTitle" class="text-4xl md:text-5xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter"></h2>
                 <p id="modalDesc" class="text-xl text-slate-500 font-semibold leading-relaxed mb-8 border-l-4 border-[#3ED6A8] pl-6"></p>
                 <div id="modalContent" class="text-slate-600 leading-loose text-lg space-y-6 opacity-90"></div>
             </div>
-            <button onclick="closeArticleModal()" class="mt-12 w-full py-5 bg-slate-900 text-white font-black rounded-2xl hover:bg-[#3ED6A8] hover:text-slate-950 transition-all uppercase tracking-widest text-xs">
-                Back to Archive
-            </button>
+            <div class="mt-8 pb-2">
+                <div class="group relative w-full inline-block">
+                    <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    
+                    <button onclick="closeHealthContent" 
+                            class="relative w-full overflow-hidden flex items-center justify-center py-5 rounded-2xl bg-[#3ED6A8] font-black text-white transition-all duration-500 shadow-xl border border-[#3ED6A8] active:scale-95">
+                        
+                        {{-- Liquid Fill Layer (Putih) --}}
+                        <span class="absolute inset-0 top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+
+                        <span class="relative z-10 flex items-center gap-3 group-hover:text-[#1F2937] transition-colors duration-500 uppercase tracking-widest text-xs">
+                            Got it, thanks!
+                            <svg class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,16 +1,26 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
+    /* Hilangkan scrollbar tapi tetap bisa di-scroll */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Tambahan agar transisi backdrop lebih smooth */
+    /* Smooth transition untuk backdrop */
     .health-modal {
         transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
     }
+
+    /* Perbaikan scroll mobile: pastikan container luar bisa scroll jika modal kepanjangan */
+    @media (max-width: 768px) {
+        .health-modal {
+            align-items: flex-start; /* Modal mulai dari atas */
+            padding: 1rem;
+            overflow-y: auto; 
+        }
+    }
 </style>
 
-<section class="bg-[#F8FAFC] py-12 px-6 min-h-screen">
+<section id="health-categories" class="bg-[#F8FAFC] py-12 px-6 min-h-screen">
     <div class="max-w-6xl mx-auto">
         
         <div class="mb-12 text-center md:text-left">
@@ -101,7 +111,7 @@
                 <button type="button" onclick="openHealthContent('modal-{{ $category['id'] }}')"
                         class="group flex flex-col items-center justify-center p-8 bg-white rounded-[2.5rem] border border-transparent shadow-sm transition-all duration-500 hover:border-[#3ED6A8]/30 hover:shadow-2xl hover:shadow-[#3ED6A8]/10 hover:-translate-y-2">
                     <div class="mb-5 p-5 rounded-[1.5rem] bg-[#F8FAFC] group-hover:bg-[#3ED6A8]/10 transition-all duration-500">
-                        <svg class="transform transition-transform duration-700 hover:scale-110" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#1F2937] group-hover:text-[#3ED6A8] transition-colors duration-500">
+                        <svg class="transform transition-transform duration-700 hover:scale-110 text-[#1F2937] group-hover:text-[#3ED6A8]" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             {!! $category['svg'] !!}
                         </svg>
                     </div>
@@ -110,63 +120,82 @@
 
                 {{-- Modal --}}
                 <div id="modal-{{ $category['id'] }}" 
-                    class="health-modal fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-[#1F2937]/0 backdrop-blur-0">
+                    class="health-modal fixed inset-0 z-[100] hidden flex items-center justify-center bg-[#1F2937]/0 backdrop-blur-0">
                     
-                    <div class="bg-white rounded-[3rem] max-w-4xl w-full overflow-hidden shadow-2xl transform scale-95 translate-y-8 opacity-0 transition-all duration-500 ease-out flex flex-col md:flex-row relative">
+                    {{-- Card Container --}}
+                    <div class="bg-white rounded-[2rem] md:rounded-[3rem] max-w-4xl w-full shadow-2xl transform scale-95 translate-y-8 opacity-0 transition-all duration-500 ease-out flex flex-col md:flex-row relative my-auto overflow-hidden max-h-[90vh] md:max-h-[85vh]">
                         
-                        {{-- Close Button (Top Right) --}}
-                        <div class="absolute top-6 right-6 z-20">
+                        {{-- Close Button --}}
+                        <div class="absolute top-4 right-4 md:top-6 md:right-6 z-20">
                             <button onclick="closeHealthContent('modal-{{ $category['id'] }}')" 
-                                    class="group flex items-center justify-center w-12 h-12 rounded-full bg-white/90 backdrop-blur-md border border-gray-100 shadow-sm transition-all duration-300 hover:bg-[#3ED6A8] hover:border-[#3ED6A8] active:scale-90">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-[#1F2937] group-hover:text-white transition-colors duration-300">
+                                    class="group relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-md border border-gray-100 shadow-sm overflow-hidden transition-all duration-500 
+                                        {{-- Efek Tekan: Tombol mengecil saat diklik --}}
+                                        active:scale-90 active:translate-y-0.5">
+                                
+                                {{-- Efek Bubble (Liquid Fill) dari bawah --}}
+                                <span class="absolute inset-0 top-0 left-0 w-full h-full bg-[#3ED6A8] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+
+                                {{-- Icon X --}}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="relative z-10 text-[#1F2937] transition-all duration-500 
+                                        {{-- Efek Hover: Icon berubah putih, berputar 90 derajat, dan sedikit membesar --}}
+                                        group-hover:text-white group-hover:rotate-90 group-hover:scale-110">
                                     <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
                                 </svg>
                             </button>
                         </div>
 
-                        {{-- Left Side: Icon & Title --}}
-                        <div class="md:w-1/3 bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] p-8 md:p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 relative overflow-hidden flex-shrink-0">
-                            <div class="relative z-10 text-center">
-                                <div class="relative mb-10 flex justify-center">
-                                    <div class="absolute inset-0 bg-[#3ED6A8] opacity-20 blur-3xl rounded-full animate-pulse"></div>
-                                    <div class="relative p-8 bg-white rounded-[2.5rem] text-[#3ED6A8] shadow-xl">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            {!! $category['svg'] !!}
-                                        </svg>
-                                    </div>
-                                </div>
-                                <h3 class="text-2xl font-black text-[#1F2937] uppercase tracking-widest">{{ $category['title'] }}</h3>
+                        {{-- Left: Icon (Static) --}}
+                        <div class="md:w-1/3 bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] p-6 md:p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 flex-shrink-0">
+                            <div class="relative p-6 md:p-8 bg-white rounded-[2rem] text-[#3ED6A8] shadow-xl mb-4 md:mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    {!! $category['svg'] !!}
+                                </svg>
                             </div>
+                            <h3 class="text-xl md:text-2xl font-black text-[#1F2937] uppercase tracking-widest text-center">{{ $category['title'] }}</h3>
                         </div>
 
-                        {{-- Right Side: Content --}}
-                        <div class="md:w-2/3 p-10 md:p-14 flex flex-col justify-center max-h-[70vh] md:max-h-none overflow-y-auto no-scrollbar">
-                            <h4 class="text-xs font-black text-[#3ED6A8] uppercase tracking-[0.2em] mb-4">Overview</h4>
-                            <p class="text-gray-500 leading-relaxed mb-10 text-lg font-medium">{{ $category['desc'] }}</p>
-                            
-                            <h4 class="text-xs font-black text-[#1F2937] uppercase tracking-[0.2em] mb-4">Health Strategy</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                @foreach($category['tips'] as $tip)
-                                    <div class="flex items-center gap-4 bg-[#F8FAFC] p-4 rounded-2xl border border-gray-100 transition-colors hover:border-[#3ED6A8]/40">
-                                        <div class="w-2 h-2 bg-[#3ED6A8] rounded-full"></div>
-                                        <span class="text-sm font-bold text-gray-700">{{ $tip }}</span>
-                                    </div>
-                                @endforeach
+                        {{-- Right: Scrollable Content --}}
+                        <div class="md:w-2/3 p-6 md:p-12 flex flex-col overflow-y-auto no-scrollbar">
+                            <div class="flex-grow">
+                                <h4 class="text-xs font-black text-[#3ED6A8] uppercase tracking-[0.2em] mb-3">Overview</h4>
+                                <p class="text-gray-500 leading-relaxed mb-8 text-base md:text-lg font-medium">{{ $category['desc'] }}</p>
+                                
+                                <h4 class="text-xs font-black text-[#1F2937] uppercase tracking-[0.2em] mb-3">Health Strategy</h4>
+                                <div class="grid grid-cols-1 gap-3 mb-6">
+                                    @foreach($category['tips'] as $tip)
+                                        <div class="flex items-center gap-3 bg-[#F8FAFC] p-4 rounded-xl border border-gray-100">
+                                            <div class="w-2 h-2 bg-[#3ED6A8] rounded-full shrink-0"></div>
+                                            <span class="text-sm font-bold text-gray-700">{{ $tip }}</span>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
 
-                            {{-- Button panggil fungsi close yang baru --}}
-                            <div class="group relative w-full mt-10 inline-block">
-                                <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                
-                                <button onclick="closeHealthContent('modal-{{ $category['id'] }}')" 
-                                        class="relative w-full overflow-hidden flex items-center justify-center py-5 rounded-2xl bg-[#3ED6A8] font-black text-white transition-all duration-500 shadow-lg active:scale-95 border border-[#3ED6A8]">
+                            {{-- Action Button --}}
+                            <div class="mt-8 pb-2">
+                                <div class="group relative w-full inline-block">
+                                    {{-- Efek Glow/Blur di belakang tombol --}}
+                                    <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
                                     
-                                    <span class="absolute inset-0 top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+                                    <button onclick="closeHealthContent('modal-{{ $category['id'] }}')" 
+                                            class="relative w-full overflow-hidden flex items-center justify-center py-5 rounded-2xl bg-[#3ED6A8] font-black text-white transition-all duration-500 shadow-xl border border-[#3ED6A8] active:scale-95">
+                                        
+                                        {{-- Lapisan Putih yang muncul dari bawah (Bubble Effect) --}}
+                                        <span class="absolute inset-0 top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
 
-                                    <span class="relative z-10 flex items-center gap-3 group-hover:text-[#1F2937] transition-colors duration-500">
-                                        Got it, thanks!
-                                    </span>
-                                </button>
+                                        {{-- Label Tombol --}}
+                                        <span class="relative z-10 flex items-center gap-3 group-hover:text-[#1F2937] transition-colors duration-500 uppercase tracking-widest text-xs">
+                                            Got it, thanks!
+                                            <svg class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" 
+                                                fill="none" 
+                                                stroke="currentColor" 
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

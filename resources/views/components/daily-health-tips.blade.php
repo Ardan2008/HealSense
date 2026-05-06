@@ -1,7 +1,25 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+<style>
+    @keyframes bubble-float {
+        0% { transform: scale(0); opacity: 0.5; }
+        100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    .bubble-effect:hover::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        animation: bubble-float 0.8s ease-out;
+    }
+</style>
+
 <script src="https://unpkg.com/lucide@latest"></script>
 
-<section class="py-24 relative min-h-screen font-sans overflow-hidden">
+<section id="daily-health-tips" class="py-24 relative min-h-screen font-sans overflow-hidden">
     <div class="absolute -top-24 -left-24 h-[400px] w-[400px] md:h-[600px] md:w-[600px] rounded-full bg-[#3ED6A8]/10 blur-[100px] pointer-events-none"></div>
     <div class="absolute top-1/2 -right-24 h-[400px] w-[400px] md:h-[700px] md:w-[700px] -translate-y-1/2 rounded-full bg-blue-50 blur-[120px] pointer-events-none"></div>
 
@@ -12,32 +30,39 @@
     </div>
 
     <div id="modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 opacity-0 invisible transition-all duration-500 bg-slate-900/40 backdrop-blur-sm">
-        <div id="modal-content" class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-500 relative p-10">
-            <button 
-                onclick="closeModal()" 
-                class="absolute top-6 right-6 p-2 rounded-xl text-[#1F2937]/40 bg-[#1F2937]/0 hover:bg-[#1F2937]/5 hover:text-[#1F2937] transition-all duration-300 group"
-                aria-label="Close Modal"
-            >
-                <svg 
-                    class="w-6 h-6 transform group-hover:rotate-90 transition-transform duration-500" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+        <div id="modal-content" class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-500 relative p-8 md:p-10">
+            
+            <div class="absolute top-4 right-4 md:top-8 md:right-8 z-30">
+                <button 
+                    onclick="closeModal()" 
+                    class="group relative h-10 w-10 md:h-12 md:w-12 flex items-center justify-center rounded-full border border-[#3ED6A8] text-[#3ED6A8] overflow-hidden transition-all duration-500 ease-in-out hover:border-transparent active:scale-90 bg-white shadow-sm"
+                    aria-label="Close Modal"
                 >
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.5" 
-                        group-hover:stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                    />
-                </svg>
-            </button>
-            <div id="modal-tag" class="text-[10px] font-bold uppercase tracking-widest mb-2"></div>
-            <h2 id="modal-title" class="text-2xl font-bold text-slate-800 mb-4"></h2>
-            <p id="modal-desc" class="text-slate-600 leading-relaxed mb-6"></p>
-            <div class="pt-4 border-t border-slate-100">
-                <p id="modal-source" class="text-[10px] text-slate-400 italic"></p>
+                    {{-- Liquid Fill Layer --}}
+                    <span class="absolute inset-0 bg-[#3ED6A8] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+
+                    {{-- Icon --}}
+                    <svg class="w-5 h-5 md:w-6 md:h-6 relative z-10 transition-all duration-500 group-hover:text-white group-hover:rotate-90 group-hover:scale-125" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="relative z-10">
+                {{-- Memberi margin kanan agar text tidak tertabrak tombol di layar kecil --}}
+                <div class="mr-12 md:mr-0">
+                    <div id="modal-tag" class="text-[10px] font-bold uppercase tracking-widest mb-2 text-[#3ED6A8]"></div>
+                    <h2 id="modal-title" class="text-2xl font-bold text-slate-800 mb-4 leading-tight"></h2>
+                </div>
+                
+                <p id="modal-desc" class="text-slate-600 leading-relaxed mb-6"></p>
+                
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <p id="modal-source" class="text-[10px] text-slate-400 italic"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -48,7 +73,7 @@
                 
                 <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-[#3ED6A8] uppercase bg-[#3ED6A8]/10 rounded-full">
                     Stay Healthy
-                </span>
+                </span> 
 
                 <h1 class="text-4xl md:text-6xl font-black text-[#1F2937] mb-6 tracking-tighter uppercase leading-none">
                     Daily <span class="text-[#3ED6A8]">Health</span> Tips
@@ -189,8 +214,21 @@
                 <h3 class="text-xl font-bold text-slate-800 mb-3">${r.title}</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">${r.desc}</p>
                 
-                <button onclick="openModal(${i})" class="w-full py-3 rounded-2xl font-bold text-xs tracking-widest text-white uppercase transition-all shadow-lg shadow-${r.color}-200 bg-gradient-to-r from-${r.color}-400 to-${r.color}-600 hover:brightness-110 active:scale-95">
-                    Read More
+                <button onclick="openModal(${i})" 
+                    class="group relative overflow-hidden w-full py-4 rounded-2xl font-black text-[10px] tracking-[0.2em] text-white uppercase transition-all shadow-lg shadow-${r.color}-200 bg-gradient-to-r from-${r.color}-500 to-${r.color}-600 active:scale-95">
+                    
+                    {{-- Efek Bubble Modern --}}
+                    <span class="absolute inset-0 flex items-center justify-center">
+                        <span class="w-0 h-0 rounded-full bg-white/20 transition-all duration-700 ease-out group-hover:w-[300px] group-hover:h-[300px] opacity-0 group-hover:opacity-100"></span>
+                    </span>
+
+                    {{-- Teks --}}
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        Read More
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </span>
                 </button>
             </div>
         `).join('');

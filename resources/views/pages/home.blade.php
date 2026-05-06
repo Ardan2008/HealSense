@@ -70,11 +70,11 @@
 
         /* Styling angka indeks agar terlihat seperti superskrip modern */
         .menu-number {
-            font-family: 'Inter', sans-serif; /* atau font sans-serif lainnya */
-            font-size: 0.27em; /* Ukuran sangat kecil dibanding teks utama */
+            font-family: 'Inter', sans-serif; 
+            font-size: 0.27em; 
             vertical-align: top;
             margin-right: 0.5rem;
-            color: rgba(15, 23, 42, 0.2); /* Warna slate halus */
+            color: rgba(15, 23, 42, 0.2); 
             font-weight: 800;
             letter-spacing: 0;
         }
@@ -133,14 +133,21 @@
 
     <nav class="absolute top-0 left-0 w-full z-[150] bg-transparent">
         <div class="container mx-auto px-6 lg:px-12 flex h-24 items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3ED6A8] text-white shadow-lg">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+            <a href="/" onclick="toggleCatalog(false)" class="inline-block active:scale-95">
+                <div class="flex items-center gap-2">
+                    {{-- Ikon Box (Statis) --}}
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3ED6A8] text-white shadow-lg">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    
+                    {{-- Teks Logo (Statis) --}}
+                    <h1 class="text-2xl font-black tracking-tight text-slate-900">
+                        Heal<span class="text-[#3ED6A8]">Sense</span>
+                    </h1>
                 </div>
-                <h1 class="text-2xl font-black tracking-tight text-slate-900">Heal<span class="text-[#3ED6A8]">Sense</span></h1>
-            </div>
+            </a>
 
             <button id="menu-btn" class="group flex items-center gap-4 transition-all duration-500">
                 <div class="relative overflow-hidden hidden sm:block">
@@ -188,44 +195,44 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/featured-articles" class="menu-item">
+                        <a href="#featured-articles" onclick="location.href='/#featured-articles'; location.reload();" class="menu-item">
                             <span><span class="menu-number">02</span>Featured Articles</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/symptom-checker" class="menu-item">
+                        <a href="#symptom-checker" onclick="location.href='/#symptom-checker'; location.reload();" class="menu-item">
                             <span><span class="menu-number">03</span>Symptom Checker</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/health-categories" class="menu-item">
+                        <a href="#health-categories" onclick="location.href='/#health-categories'; location.reload();" class="menu-item">
                             <span><span class="menu-number">04</span>Health Categories</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/daily-health-tips" class="menu-item">
+                        <a href="#daily-health-tips" onclick="location.href='/#daily-health-tips'; location.reload();" class="menu-item">
                             <span><span class="menu-number">05</span>Daily Health Tips</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/interactive" class="menu-item">
+                        <a href="#interactive" class="menu-item">
                             <span><span class="menu-number">06</span>Interactive Tools</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/about" class="menu-item">
+                        <a href="#about" class="menu-item">
                             <span><span class="menu-number">07</span>About Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/testimonial" class="menu-item">
+                        <a href="#testimonial" class="menu-item">
                             <span><span class="menu-number">08</span>Testimonials</span>
                         </a>
                     </li>
                     
                     <!-- Contact Now Section -->
                     <li class="md:col-span-2 pt-8 mt-4 border-t border-white/20">
-                        <a href="/contact" class="group flex items-baseline gap-4 text-4xl md:text-7xl font-black text-slate-900 hover:text-white transition-all italic">
+                        <a href="#contact" class="group flex items-baseline gap-4 text-4xl md:text-7xl font-black text-slate-900 hover:text-white transition-all italic">
                             <span class="text-xl md:text-2xl not-italic opacity-40 group-hover:opacity-100 transition-opacity">09</span>
                             <span>Contact Now →</span>
                         </a>
@@ -286,24 +293,40 @@
                     {{-- Tombol muncul dari bawah --}}
                     <div class="flex flex-col sm:flex-row items-center gap-6 lg:justify-start"
                         data-aos="fade-up" data-aos-delay="600" data-aos-once="false">
-                        <a href="#" class="group relative w-full sm:w-auto">
-                            <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                            <div class="btn-glossy relative flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-[#3ED6A8] font-black text-white shadow-xl transition-all group-hover:-translate-y-1.5 active:scale-95">
-                                <span class="relative z-10 tracking-wide">Explore Articles</span>
-                                <svg class="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        
+                        {{-- Button 1: Explore Articles (Green to White Fill) --}}
+                        <a href="#featured-articles" class="group relative w-full sm:w-auto block">
+                            {{-- Glow Effect --}}
+                            <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                            
+                            <div class="relative overflow-hidden flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-[#3ED6A8] border border-[#3ED6A8] font-black text-white shadow-xl transition-all duration-500 group-hover:-translate-y-1.5 active:scale-95">
+                                
+                                {{-- Liquid Fill Layer --}}
+                                <span class="absolute inset-0 top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+
+                                {{-- Content --}}
+                                <span class="relative z-10 tracking-wide group-hover:text-[#1F2937] transition-colors duration-500">Explore Articles</span>
+                                <svg class="relative z-10 w-5 h-5 group-hover:text-[#1F2937] group-hover:translate-x-1.5 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                 </svg>
                             </div>
                         </a>
 
-                        <a href="#" class="group relative w-full sm:w-auto block">
-                            <div class="flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white border-[1.5px] border-slate-200 font-black text-slate-800 shadow-sm transition-all hover:border-[#3ED6A8] hover:text-[#3ED6A8] hover:-translate-y-1.5 active:scale-95">
-                                <div class="bg-slate-100 p-1.5 rounded-lg group-hover:bg-[#3ED6A8] group-hover:text-white transition-all">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {{-- Button 2: Symptom Check (White to Green Fill) --}}
+                        <a href="#symptom-checker" class="group relative w-full sm:w-auto block">
+                            <div class="relative overflow-hidden flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white border-[1.5px] border-slate-200 font-black text-slate-800 shadow-sm transition-all duration-500 group-hover:border-[#3ED6A8] group-hover:-translate-y-1.5 active:scale-95">
+                                
+                                {{-- Liquid Fill Layer --}}
+                                <span class="absolute inset-0 top-0 left-0 w-full h-full bg-[#3ED6A8] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+
+                                {{-- Icon Wrapper --}}
+                                <div class="relative z-10 bg-slate-100 p-1.5 rounded-lg group-hover:bg-white/20 group-hover:text-white transition-all duration-500">
+                                    <svg class="w-5 h-5 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                                     </svg>
                                 </div>
-                                <span class="tracking-wide">Symptom Check</span>
+                                
+                                <span class="relative z-10 tracking-wide group-hover:text-white transition-colors duration-500">Symptom Check</span>
                             </div>
                         </a>
                     </div>
@@ -369,6 +392,29 @@
     {{-- Daily Health Tips --}}
     @include('components.daily-health-tips')
 
+    {{-- back to top --}}
+    <a href="javascript:void(0)" id="back-to-top" class="group fixed bottom-8 right-8 z-[100] inline-block translate-y-24 opacity-0 transition-all duration-500">
+        {{-- Glow Effect di Luar --}}
+        <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
+        
+        {{-- Main Button --}}
+        <button class="relative overflow-hidden flex items-center justify-center h-14 w-14 rounded-2xl bg-[#3ED6A8] border border-[#3ED6A8] shadow-2xl transition-all duration-500 group-hover:-translate-y-2 active:scale-90">
+            
+            {{-- Liquid Fill Layer --}}
+            <span class="absolute inset-0 top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0 rounded-t-[50%] group-hover:rounded-none"></span>
+
+            {{-- Icon --}}
+            <span class="relative z-10 text-white group-hover:text-[#1F2937] transition-colors duration-500">
+                <svg class="w-6 h-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"/>
+                </svg>
+            </span>
+        </button>
+    </a>
+
     {{-- link script AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -378,7 +424,7 @@
             AOS.init({
             duration: 1000,
             once: false,      // UBAH KE FALSE: Animasi akan terulang setiap kali scroll
-            mirror: true,     // TAMBAHKAN INI: Elemen akan beranimasi keluar saat kamu scroll melewatinya
+            mirror: true,     // Elemen akan beranimasi keluar saat kamu scroll melewatinya
             offset: 120,      // Jarak (px) dari titik pemicu asli untuk memicu animasi
             });
         });
@@ -405,18 +451,18 @@
             };
 
             closeBtn.onclick = function(e) {
-                // 1. Buat elemen gelombang
+                // Membuat elemen gelombang
                 const ripple = document.createElement("span");
                 ripple.classList.add("click-ripple");
                 this.appendChild(ripple);
 
-                // 2. Tentukan posisi gelombang (tengah tombol)
+                // Tentukan posisi gelombang (tengah tombol)
                 const size = Math.max(this.clientWidth, this.clientHeight);
                 ripple.style.width = ripple.style.height = `${size}px`;
                 ripple.style.left = `0px`;
                 ripple.style.top = `0px`;
 
-                // 3. Jalankan fungsi hideMenu setelah animasi berjalan sedikit (300ms)
+                // Jalankan fungsi hideMenu setelah animasi berjalan sedikit (300ms)
                 setTimeout(() => {
                     hideMenu();
                     ripple.remove(); // Hapus elemen setelah selesai
@@ -428,6 +474,76 @@
                 if(e.key === 'Escape') hideMenu(); 
             };
         });
+
+        // logic Scroll Spy with URL Sync
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ambil semua section yang ingin dipantau
+            const sections = document.querySelectorAll('section[id]');
+            
+            // Opsi untuk Observer: Trigger saat section terlihat 50% di layar
+            const options = {
+                threshold: 0.5,
+                rootMargin: "0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // Jika section masuk ke area pandang (visible)
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        
+                        // Update URL tanpa memicu reload dan tanpa membuat history menumpuk
+                        // Kita gunakan replaceState agar saat user klik 'Back', mereka tidak terjebak di hash scroll
+                        history.replaceState(null, null, `#${id}`);
+                        
+                        // (Opsional) Jika kamu ingin link di navbar otomatis terlihat aktif/berwarna
+                        updateActiveLink(id);
+                    }
+                });
+            }, options);
+
+            // Daftarkan semua section ke observer
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+
+            // Reset URL ke Home saat kembali ke paling atas (Hero Section)
+            window.addEventListener('scroll', () => {
+                if (window.scrollY < 200) {
+                    history.replaceState(null, null, window.location.pathname);
+                }
+            });
+        });
+
+        // Fungsi opsional untuk menandai menu mana yang aktif
+        function updateActiveLink(id) {
+            document.querySelectorAll('.menu-item').forEach(link => {
+                link.classList.remove('text-[#3ED6A8]'); // hapus warna aktif sebelumnya
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('text-[#3ED6A8]'); // beri warna hijau HealSense
+                }
+            });
+        }
+
+        // Logic Back to Top
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                backToTopBtn.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+
+        backToTopBtn.onclick = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
     </script>
 </body>
 </html>

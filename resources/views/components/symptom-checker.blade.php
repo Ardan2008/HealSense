@@ -20,7 +20,7 @@
     }
 </style>
 
-<section class="py-24 relative overflow-hidden">
+<section id="symptom-checker" class="py-24 relative overflow-hidden">
     <div class="absolute -top-24 -left-24 h-[400px] w-[400px] md:h-[600px] md:w-[600px] rounded-full bg-[#3ED6A8]/10 blur-[100px] pointer-events-none"></div>
     <div class="absolute top-1/2 -right-24 h-[400px] w-[400px] md:h-[700px] md:w-[700px] -translate-y-1/2 rounded-full bg-blue-50 blur-[120px] pointer-events-none"></div>
 

@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="group relative inline-block">
+                <a href="javascript:void(0)" onclick="nextStep(1)" class="group relative inline-block">
                     <div class="absolute inset-0 bg-[#3ED6A8] blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
                     
                     <button class="relative overflow-hidden flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-[#3ED6A8] font-black text-white transition-all duration-500 shadow-2xl uppercase tracking-widest text-xs border border-[#3ED6A8]">

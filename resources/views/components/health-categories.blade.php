@@ -24,72 +24,72 @@
                     [
                         'id' => 'nutrition',
                         'title' => 'Nutrition',
-                        'desc' => 'Nutrisi adalah fondasi kesehatan biologis. Nutrisi makro (karbohidrat, protein, lemak) menyediakan energi, sementara mikronutrisi (vitamin, mineral) mendukung fungsi enzimatik dan hormonal yang menjaga metabolisme tetap optimal.',
+                        'desc' => 'Nutrition is the foundation of biological health. Macronutrients (carbohydrates, proteins, fats) provide energy, while micronutrients (vitamins, minerals) support enzymatic and hormonal functions that maintain optimal metabolism.',
                         'tips' => [
-                            'Konsumsi 5 porsi serat (sayur & buah)',
-                            'Batasi gula tambahan < 25g per hari',
-                            'Penuhi hidrasi: 30ml per kg berat badan',
-                            'Pilih sumber lemak tak jenuh (Alpukat, Ikan)'
+                            'Consume 5 servings of fiber (vegetables & fruit)',
+                            'Limit added sugar to < 25g per day',
+                            'Stay hydrated: 30ml per kg of body weight',
+                            'Choose unsaturated fat sources (Avocados, Fish)'
                         ],
                         'svg' => '<path d="M12 21.66V12M12 12c3.31 0 6-2.69 6-6V3h-2v3c0 2.21-1.79 4-4 4s-4-1.79-4-4V3H6v3c0 3.31 2.69 6 6 6Z"/><path d="M18 8c0 4.42-3 8-6 8s-6-3.58-6-8"/><path d="M12 16v5.66"/>'
                     ],
                     [
                         'id' => 'mental-health',
                         'title' => 'Mental Health',
-                        'desc' => 'Kesehatan mental mencakup ketahanan emosional dan stabilitas kognitif. Kondisi psikologis yang sehat memungkinkan individu mengelola stresor kehidupan, bekerja secara produktif, dan berkontribusi pada komunitas mereka.',
+                        'desc' => 'Mental health encompasses emotional resilience and cognitive stability. A healthy psychological state enables individuals to manage life stressors, work productively, and contribute to their community.',
                         'tips' => [
-                            'Praktik teknik pernapasan 4-7-8',
-                            'Digital detox 1 jam sebelum tidur',
-                            'Jurnal syukur setiap pagi/malam',
-                            'Konsultasi ke ahli jika merasa burnout'
+                            'Practice the 4-7-8 breathing technique',
+                            'Digital detox 1 hour before bedtime',
+                            'Keep a gratitude journal every morning/night',
+                            'Consult a professional if feeling burnt out'
                         ],
                         'svg' => '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>'
                     ],
                     [
                         'id' => 'fitness',
                         'title' => 'Fitness',
-                        'desc' => 'Kebugaran fisik bukan sekadar estetika, melainkan kemampuan tubuh untuk berfungsi efisien. Latihan rutin meningkatkan densitas tulang, sensitivitas insulin, dan memperkuat sistem muskuloskeletal.',
+                        'desc' => 'Physical fitness is not just about aesthetics, but the body\'s ability to function efficiently. Regular exercise increases bone density, insulin sensitivity, and strengthens the musculoskeletal system.',
                         'tips' => [
-                            '150 menit latihan aerobik sedang/minggu',
-                            'Latihan beban 2x seminggu untuk otot',
-                            'Berjalan minimal 7.000 langkah sehari',
-                            'Istirahat 48 jam antar sesi otot berat'
+                            '150 minutes of moderate aerobic exercise/week',
+                            'Strength training 2x a week for muscle health',
+                            'Walk at least 7,000 steps a day',
+                            'Rest 48 hours between heavy muscle sessions'
                         ],
                         'svg' => '<path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/><path d="M2 20h20"/>'
                     ],
                     [
                         'id' => 'diseases',
                         'title' => 'Diseases',
-                        'desc' => 'Pemahaman tentang patologi membantu deteksi dini penyakit menular maupun degeneratif. Pencegahan primer melalui imunisasi dan gaya hidup jauh lebih efektif dibanding pengobatan kuratif.',
+                        'desc' => 'Understanding pathology helps in the early detection of both infectious and degenerative diseases. Primary prevention through immunization and lifestyle is far more effective than curative treatment.',
                         'tips' => [
-                            'Cek tekanan darah dan gula darah rutin',
-                            'Lengkapi jadwal vaksinasi dewasa',
-                            'Cuci tangan dengan sabun (metode WHO)',
-                            'Hindari paparan asap rokok (perokok pasif)'
+                            'Regularly check blood pressure and blood sugar',
+                            'Complete the adult vaccination schedule',
+                            'Wash hands with soap (WHO method)',
+                            'Avoid exposure to second-hand smoke'
                         ],
                         'svg' => '<path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><circle cx="12" cy="12" r="3"/>'
                     ],
                     [
                         'id' => 'sleep',
                         'title' => 'Sleep',
-                        'desc' => 'Tidur adalah proses anabolik di mana tubuh melakukan perbaikan jaringan, konsolidasi memori, dan pembersihan racun di otak melalui sistem glimfatik. Kualitas tidur sangat menentukan performa kognitif.',
+                        'desc' => 'Sleep is an anabolic process where the body performs tissue repair, memory consolidation, and toxin clearance in the brain via the glymphatic system. Sleep quality dictates cognitive performance.',
                         'tips' => [
-                            'Targetkan 7-9 jam tidur berkualitas',
-                            'Jaga suhu kamar tetap sejuk (±20-22°C)',
-                            'Bangun dan tidur di jam yang sama',
-                            'Hindari kafein 6 jam sebelum tidur'
+                            'Aim for 7-9 hours of quality sleep',
+                            'Keep room temperature cool (±20-22°C)',
+                            'Wake up and go to bed at the same time',
+                            'Avoid caffeine 6 hours before sleep'
                         ],
                         'svg' => '<path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/>'
                     ],
                     [
                         'id' => 'heart-health',
                         'title' => 'Heart Health',
-                        'desc' => 'Jantung adalah mesin sirkulasi utama. Menjaga kesehatan kardiovaskular berarti menjaga elastisitas pembuluh darah dan memastikan suplai oksigen ke seluruh organ vital terpenuhi tanpa hambatan plak.',
+                        'desc' => 'The heart is the primary circulatory engine. Maintaining cardiovascular health means preserving blood vessel elasticity and ensuring oxygen supply to vital organs without plaque obstruction.',
                         'tips' => [
-                            'Kurangi asupan garam < 1 sendok teh/hari',
-                            'Pilih karbohidrat kompleks (oat, gandum)',
-                            'Monitor profil kolesterol (LDL & HDL)',
-                            'Lakukan kardio ringan seperti jalan cepat'
+                            'Reduce salt intake to < 1 teaspoon/day',
+                            'Choose complex carbohydrates (oats, whole wheat)',
+                            'Monitor cholesterol profiles (LDL & HDL)',
+                            'Perform light cardio such as brisk walking'
                         ],
                         'svg' => '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>'
                     ],

@@ -215,12 +215,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#interactive" class="menu-item">
+                        <a href="#interactive" onclick="location.href='/#interactive'; location.reload();" class="menu-item">
                             <span><span class="menu-number">06</span>Interactive Tools</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#about" class="menu-item">
+                        <a href="#about" onclick="location.href='/#about'; location.reload();" class="menu-item">
                             <span><span class="menu-number">07</span>About Us</span>
                         </a>
                     </li>
@@ -391,6 +391,15 @@
 
     {{-- Daily Health Tips --}}
     @include('components.daily-health-tips')
+
+    {{-- Interactive Section --}}
+    @include('components.interactive')
+
+    {{-- About Section --}}
+    @include('components.about')
+
+    {{-- Testimonial --}}
+    @include('components.testimonial')
 
     {{-- back to top --}}
     <a href="javascript:void(0)" id="back-to-top" class="group fixed bottom-8 right-8 z-[100] inline-block translate-y-24 opacity-0 transition-all duration-500">

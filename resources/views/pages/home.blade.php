@@ -136,10 +136,8 @@
             <a href="/" onclick="toggleCatalog(false)" class="inline-block active:scale-95">
                 <div class="flex items-center gap-2">
                     {{-- Ikon Box (Statis) --}}
-                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3ED6A8] text-white shadow-lg">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3ED6A8] text-white">
+                        <i data-lucide="heart-pulse" class="h-6 w-6"></i>
                     </div>
                     
                     {{-- Teks Logo (Statis) --}}
@@ -403,6 +401,9 @@
 
     {{-- contact --}}
     @include('components.contact')
+
+    {{-- footer --}}
+    @include('layouts.footer')
 
     {{-- back to top --}}
     <a href="javascript:void(0)" id="back-to-top" class="group fixed bottom-8 right-8 z-[100] inline-block translate-y-24 opacity-0 transition-all duration-500">

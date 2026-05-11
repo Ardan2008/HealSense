@@ -225,14 +225,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#testimonial" class="menu-item">
+                        <a href="#testimonial" onclick="location.href='/#testimonial'; location.reload();" class="menu-item">
                             <span><span class="menu-number">08</span>Testimonials</span>
                         </a>
                     </li>
                     
                     <!-- Contact Now Section -->
                     <li class="md:col-span-2 pt-8 mt-4 border-t border-white/20">
-                        <a href="#contact" class="group flex items-baseline gap-4 text-4xl md:text-7xl font-black text-slate-900 hover:text-white transition-all italic">
+                        <a href="#contact" onclick="location.href='/#contact'; location.reload();" class="group flex items-baseline gap-4 text-4xl md:text-7xl font-black text-slate-900 hover:text-white transition-all italic">
                             <span class="text-xl md:text-2xl not-italic opacity-40 group-hover:opacity-100 transition-opacity">09</span>
                             <span>Contact Now →</span>
                         </a>
@@ -400,6 +400,9 @@
 
     {{-- Testimonial --}}
     @include('components.testimonial')
+
+    {{-- contact --}}
+    @include('components.contact')
 
     {{-- back to top --}}
     <a href="javascript:void(0)" id="back-to-top" class="group fixed bottom-8 right-8 z-[100] inline-block translate-y-24 opacity-0 transition-all duration-500">

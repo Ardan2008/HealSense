@@ -1,6 +1,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<section class="py-16 bg-[#F8FAFC] overflow-hidden">
+<section id="testimonial" class="py-16 bg-[#F8FAFC] overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 mb-10 text-center">
         <h2 class="text-3xl font-bold text-[#1F2937]">What Our Users Say</h2>
         <p class="text-[#3ED6A8] font-medium mt-2">Testimonials</p>

@@ -11,7 +11,6 @@
         <div class="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-[#F8FAFC] to-transparent pointer-events-none"></div>
         <div class="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-[#F8FAFC] to-transparent pointer-events-none"></div>
 
-        <!-- Carousel Track: HAPUS class 'transition-transform' dan 'duration-700' -->
         <div id="carouselTrack" class="flex w-max cursor-pointer group/track">
             @php
                 $testimonials = [
@@ -57,7 +56,6 @@
         let scrollAmount = 0;
         let isPaused = false;
 
-        // Speed 1.5 - 2 sudah cukup cepat untuk efek 'seamless'
         const speed = 1.5; 
 
         function stepAnimation() {
@@ -71,7 +69,7 @@
                     scrollAmount = 0;
                 }
                 
-                // Gunakan transform tanpa transisi CSS untuk pergerakan linear murni
+                // menggunakan transform tanpa transisi CSS untuk pergerakan linear murni
                 track.style.transform = `translateX(-${scrollAmount}px)`;
             }
             requestAnimationFrame(stepAnimation);

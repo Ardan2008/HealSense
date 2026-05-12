@@ -58,6 +58,22 @@ Route::get('/contact', function () {
 |--------------------------------------------------------------------------
 */
 
+// FORM LOGIN
+Route::get('/{key}', function ($key) {
+    
+    // Ambil kunci rahasia dari .env
+    $secretKey = env('ADMIN_LOGIN_KEY');
+
+    // Validasi apakah parameter yang diketik di URL cocok dengan .env
+    if ($key !== $secretKey) {
+        // Jika tidak cocok, lempar ke 404 atau halaman utama
+        abort(404);
+    }
+
+    // Jika cocok, tampilkan view login
+    return view('admin.form_login');
+})->name('admin.form_login');
+
 // DASHBOARD OVERVIEW
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index');

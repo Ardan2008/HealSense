@@ -62,34 +62,37 @@
                 </div>
                 <div class="p-6 bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-100">
                     <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Have Questions?</p>
-                    <p class="text-gray-800 font-bold">healsense08@gmail.com</p>
+                    <p class="text-[#3ED6A8] font-bold">healsense08@gmail.com</p>
                 </div>
             </div>
         </div>
 
         <div class="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 group/footer">
             
-            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                <p class="flex items-center text-gray-400 text-sm font-medium tracking-tight">
-                    © 2026 
-                    <span class="text-gray-700 font-bold ml-1.5">HealSense</span>
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-0">
+                <div class="flex items-center text-sm tracking-tight">
+                    <span class="text-gray-500 font-medium">© 2026</span>
+                    <span class="text-[#3ED6A8] font-extrabold ml-2 antialiased tracking-wider">HEALSENSE</span>
                     
-                    <span class="hidden md:block w-[1px] h-4 bg-gray-200 mx-4 self-center"></span> 
+                    <span class="hidden md:block w-[1.5px] h-4 bg-gray-200 mx-6 self-center"></span>
                     
-                    <span class="ml-1 md:ml-0">All rights reserved.</span>
-                </p>
-
-                <div class="flex gap-8">
-                    <a href="#" class="group/link relative text-gray-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                        <span class="group-hover/link:text-[#3ED6A8] transition-colors">Privacy</span>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3ED6A8] transition-all duration-300 group-hover/link:w-full"></span>
-                    </a>
-                    <a href="#" class="group/link relative text-gray-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                        <span class="group-hover/link:text-[#3ED6A8] transition-colors">Terms</span>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3ED6A8] transition-all duration-300 group-hover/link:w-full"></span>
-                    </a>
+                    <span class="hidden md:block text-gray-500 font-medium">All rights reserved.</span>
                 </div>
+                
+                <span class="md:hidden text-gray-500 text-xs font-medium">All rights reserved.</span>
             </div>
+
+            <nav class="flex items-center gap-8">
+                <a href="#" class="group relative py-1 text-sm text-[#3ED6A8] font-semibold tracking-wide transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(62,214,168,0.6)]">
+                    Terms of Service
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-[#3ED6A8] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a>
+
+                <a href="#" class="group relative py-1 text-sm text-[#3ED6A8] font-semibold tracking-wide transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(62,214,168,0.6)]">
+                    Privacy Policy
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-[#3ED6A8] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a>
+            </nav>
 
             <div class="relative">
                 <div class="absolute inset-0 bg-[#3ED6A8]/10 blur-xl rounded-full scale-110 opacity-0 group-hover/footer:opacity-100 transition-opacity duration-700"></div>
